@@ -1,7 +1,9 @@
 # Italiano Billing — сервис подписок, инвойсов и вебхуков (FastAPI)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/<OWNER>/<REPO>/ci.yml?branch=main&label=CI)](https://github.com/<OWNER>/<REPO>/actions)
-![python](https://img.shields.io/badge/python-3.12-blue)
+[![CI](https://img.shields.io/github/actions/workflow/status/DeBugHowardDuck/Italiano_Billing/ci.yml?branch=main&label=CI)](https://github.com/DeBugHowardDuck/Italiano_Billing/actions)
+[![Release](https://img.shields.io/github/v/tag/DeBugHowardDuck/Italiano_Billing?label=release)](https://github.com/DeBugHowardDuck/Italiano_Billing/tags)
+[![GHCR](https://img.shields.io/badge/GHCR-italiano--billing-blue)](https://ghcr.io/debughowardduck/italiano_billing/italiano-billing)
+![Python](https://img.shields.io/badge/python-3.12-blue)
 ![mypy](https://img.shields.io/badge/type--check-mypy--strict-green)
 ![ruff](https://img.shields.io/badge/lint-ruff-green)
 ![license](https://img.shields.io/badge/license-MIT-green)
