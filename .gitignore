@@ -1,0 +1,23 @@
+# venv / python
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+
+# env & secrets
+.env
+.env.*.local
+
+# pytest/coverage
+.coverage
+htmlcov/
+.cache/
+
+# alembic
+migrations/*.pyc
+
+# local tools
+.DS_Store
+.idea/
+.vscode/

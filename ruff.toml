@@ -1,0 +1,9 @@
+[lint]
+extend-select = ["Q", "W", "ANN", "I", "C90"]
+
+# временно допускаем текущую сложность функции
+[lint.mccabe]
+max-complexity = 16
+
+[format]
+skip-magic-trailing-comma = false
